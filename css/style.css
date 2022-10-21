@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+/* font-family: 'League Spartan', sans-serif; */
+
+/* ### Primary
+
+Very Dark Magenta: hsl(300, 43%, 22%)
+Soft Pink: hsl(333, 80%, 67%)
+
+### Neutral
+
+Dark Grayish Magenta: hsl(303, 10%, 53%)
+Light Grayish Magenta: hsl(300, 24%, 96%)
+White: hsl(0, 0%, 100%) */
+
+/*  Variables  */
+
+:root {
+    --crl-heading-rating-quote-box: hsl(300, 43%, 22%);
+    --crl-description: hsl(303, 10%, 53%);
+    --crl-para-rating-box: hsl(300, 24%, 96%);
+    --crl-name: hsl(0, 0%, 100%);
+    --crl-status: hsl(333, 80%, 67%);
+    
+    --ff: 'League Spartan', sans-serif;
+
+    --fs-heading: 2.5rem;
+    --fs-para: 0.9375rem;
+}
+
+
+/*  Reset  */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin & padding */
+
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+/* Remove list styles on ul, ol elements */
+ol, ul, menu {
+    list-style: none;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
+
+
+
+/*  Global  */
+
+body {
+    margin: 5rem 1.5rem;
+    font-family: var(--ff);
+    font-size: var(--fs-para);
+    text-align: center;
+    background-image: url(../images/bg-pattern-top-desktop.svg), url(../images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: top left, bottom right;
+    background-size: 400px;
+}
+
+
+/*  Layout  */
+
+.container {
+    max-width: 65rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.grid {
+    display: grid;
+    gap: 3rem 0;
+}
+
+
+
+/*  Intro  */
+
+h1 {
+    max-width: 20rem;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: var(--fs-heading);
+    line-height: 0.8;
+    color: var(--crl-heading-rating-quote-box);
+}
+
+.description {
+    margin-top: 1.5em;
+    font-weight: 500;
+    color: var(--crl-description);
+    font-size: 1rem;
+}
+
+
+
+/*  Rating  */
+
+.rating li {
+    padding: 0.75rem 2rem;
+    background-color: var(--crl-para-rating-box);
+    border-radius: 0.5em;
+    color: var(--crl-heading-rating-quote-box);
+    font-weight: 900;
+    max-width: 26rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.star {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.star img {
+    margin: 0 0.2rem;
+}
+
+.flow > * + * {
+    margin-top: var(--flow-space, 1em);
+}
+
+
+
+/*  Feedback  */
+
+.feedback {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem 0;
+}
+
+.feedback li {
+    max-width: 26rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+blockquote {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 2rem;
+    background-color: var(--crl-heading-rating-quote-box);
+    border-radius: 0.5rem;
+    text-align: left;
+    gap: 1.5rem 0;
+}
+
+blockquote img {
+    width: 40px;
+    border-radius: 50%;
+    grid-column: 1 / 2;
+}
+
+blockquote div {
+    line-height: 1.2rem;
+    grid-column: 2 / 3;
+}
+
+.name {
+    color: var(--crl-name);
+    font-weight: 700;
+}
+
+.status {
+    color: var(--crl-status);
+}
+
+.quote {
+    grid-column: 1 / -1;
+    color: var(--crl-para-rating-box);
+}
+
+
+
+/*  Media Query  */
+
+@media screen and (min-width: 50em) {
+    body {
+        text-align: left;
+        margin: 7.5rem 3rem;
+        background-size: 50%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1.5fr;
+        gap: 4rem 3rem;
+    }
+
+    .intro {
+        grid-column: 1 / 2;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: 3rem;
+    }
+
+    .rating {
+        grid-column: 2 / 3;
+        align-self: center;
+    }
+
+    .rating li {
+        display: flex;
+        align-items: center;
+    }
+
+    .rating li:first-of-type {
+        transform: translateX(-3rem);
+    }
+
+    .rating li:last-of-type {
+        transform: translateX(3rem);
+    }
+
+    .star {
+        margin-right: 1.7rem;
+        margin-top: 0.2rem;
+    }
+
+    .feedback {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .feedback li:nth-child(2) {
+        transform: translateY(1rem);
+    }
+
+    .feedback li:nth-child(3) {
+        transform: translateY(2rem);
+    }
+
+}
